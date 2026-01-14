@@ -1,43 +1,149 @@
-/* RESET GLOBAL */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #0a0a0a;
+  background-color: #0b0b0b;
   color: #ffffff;
 }
 
-/* HERO FICTÍCIO (SEM IMAGEM) */
-.hero {
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
   width: 100%;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+.navbar a:hover {
+  opacity: 1;
+}
+
+/* HERO */
+.hero {
   height: 100vh;
-
-  background: linear-gradient(
-    135deg,
-    #0f2027,
-    #203a43,
-    #2c5364
-  );
-
+  background: linear-gradient(135deg, #1f2933, #0f172a);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 70px;
   text-align: center;
 }
 
-/* CONTEÚDO DO HERO */
-.hero-content h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
+.hero-content {
+  max-width: 850px;
 }
 
-.hero-content p {
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
   font-size: 1.2rem;
+  margin-bottom: 35px;
+  opacity: 0.9;
+}
+
+/* BUTTON */
+.btn {
+  padding: 14px 34px;
+  background: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.section.dark {
+  background-color: #111;
+}
+
+.section h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+.section p {
+  max-width: 780px;
+  margin: 0 auto;
   opacity: 0.85;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 35px;
+  border-radius: 12px;
+}
+
+/* CTA */
+.cta {
+  padding: 120px 40px;
+  background: linear-gradient(135deg, #0f2027, #203a43);
+  text-align: center;
+}
+
+.cta a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cta p {
+  margin: 15px 0;
+}
+
+.cta-info {
+  margin-top: 25px;
+  opacity: 0.85;
+}
+
+/* FOOTER */
+.footer {
+  padding: 30px;
+  background: #000;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
