@@ -7,235 +7,150 @@
 
 <title>Alpha Olympus | Infraestrutura de Vagas e Recrutamento</title>
 
-<meta name="description" content="Alpha Olympus é uma infraestrutura profissional para divulgação e contratação de vagas de emprego.">
+<meta name="description" content="Infraestrutura profissional para divulgação de vagas e recrutamento de talentos.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Alpha Olympus">
 
 <style>
-/* ==================================================
-   RESET E BASE
-================================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Segoe UI,Arial,sans-serif;
+  background:#0b0b0b;
+  color:#fff;
+  line-height:1.6;
 }
 
-html {
-  scroll-behavior: smooth;
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:64px;
+  background:rgba(0,0,0,.9);
+  display:flex;
+  align-items:center;
+  padding:0 20px;
+  z-index:1000;
+  border-bottom:1px solid #1a1a1a;
+}
+.menu-icon{font-size:26px;cursor:pointer;margin-right:16px}
+.logo{font-size:18px;font-weight:600}
+
+/* MENU */
+.menu-box{
+  position:fixed;
+  top:64px;
+  left:16px;
+  width:220px;
+  background:#111;
+  border-radius:10px;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
+.menu-box a{
+  padding:14px 16px;
+  text-decoration:none;
+  color:#fff;
+  border-bottom:1px solid #1f1f1f;
+}
+.menu-box a:hover{background:#1c1c1c}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px 40px;
+  background:linear-gradient(180deg,#000,#0f1e26);
+}
+.hero h1{font-size:40px}
+.hero p{margin-top:16px;font-size:18px;opacity:.85}
+
+/* DESTAQUE VAGAS HOME */
+.home-vagas{
+  margin-top:40px;
+  max-width:520px;
+  width:100%;
+}
+.home-vagas div{
+  background:#111;
+  padding:14px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #1f1f1f;
 }
 
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #0b0b0b;
-  color: #ffffff;
-  line-height: 1.6;
+/* SECTIONS */
+section{
+  min-height:100vh;
+  padding:120px 20px 60px;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+section.active{display:flex;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* VAGAS */
+.vagas-container{
+  max-width:520px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.vaga{
+  background:#121212;
+  padding:16px;
+  border-radius:10px;
+  border:1px solid #1f1f1f;
+  cursor:pointer;
+}
+.vaga:hover{background:#1b1b1b}
+
+/* BOTÕES */
+.btn{
+  margin-top:24px;
+  padding:14px 22px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
 }
 
-/* ==================================================
-   HEADER FIXO
-================================================== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 64px;
-  background: rgba(0,0,0,0.9);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  z-index: 1000;
-  border-bottom: 1px solid #1a1a1a;
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:2000;
+}
+.modal-content{
+  background:#111;
+  max-width:520px;
+  width:100%;
+  padding:28px;
+  border-radius:14px;
+  border:1px solid #1f1f1f;
 }
 
-.menu-icon {
-  font-size: 26px;
-  cursor: pointer;
-  margin-right: 16px;
-  user-select: none;
-}
-
-.logo {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: .5px;
-}
-
-/* ==================================================
-   MENU LATERAL
-================================================== */
-.menu-box {
-  position: fixed;
-  top: 64px;
-  left: 16px;
-  width: 220px;
-  background: #111;
-  border-radius: 10px;
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,.6);
-  z-index: 999;
-}
-
-.menu-box a {
-  padding: 14px 16px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 15px;
-  border-bottom: 1px solid #1f1f1f;
-  transition: background .25s;
-}
-
-.menu-box a:hover {
-  background: #1c1c1c;
-}
-
-/* ==================================================
-   HERO / HOME
-================================================== */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 100px 20px 40px;
-  background: linear-gradient(180deg, #000 0%, #0f1e26 100%);
-}
-
-.hero h1 {
-  font-size: clamp(28px, 5vw, 40px);
-  font-weight: 700;
-}
-
-.hero p {
-  margin-top: 16px;
-  font-size: 18px;
-  opacity: .85;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ==================================================
-   SEÇÕES GERAIS
-================================================== */
-section {
-  min-height: 100vh;
-  padding: 100px 20px 60px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-section.active {
-  display: flex;
-  animation: fadeUp .35s ease;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ==================================================
-   VAGAS
-================================================== */
-.vagas-container {
-  width: 100%;
-  max-width: 520px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.vaga {
-  background: #121212;
-  padding: 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: 1px solid #1f1f1f;
-  transition: all .25s;
-}
-
-.vaga:hover {
-  background: #1b1b1b;
-  transform: translateY(-2px);
-}
-
-/* ==================================================
-   BOTÕES
-================================================== */
-.btn {
-  margin-top: 24px;
-  padding: 14px 22px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 600;
-  background: #ffffff;
-  color: #000;
-  transition: all .25s;
-}
-
-.btn:hover {
-  opacity: .85;
-}
-
-/* ==================================================
-   MODAL (VAGA INDIVIDUAL)
-================================================== */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.85);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 2000;
-}
-
-.modal-content {
-  background: #111;
-  max-width: 520px;
-  width: 100%;
-  padding: 28px;
-  border-radius: 14px;
-  border: 1px solid #1f1f1f;
-  animation: fadeUp .25s ease;
-}
-
-.modal-content h2 {
-  margin-bottom: 10px;
-}
-
-.modal-content p {
-  opacity: .85;
-}
-
-/* ==================================================
-   FOOTER
-================================================== */
-footer {
-  background: #000;
-  padding: 18px;
-  text-align: center;
-  font-size: 14px;
-  opacity: .6;
-}
-
-/* ==================================================
-   ACESSIBILIDADE
-================================================== */
-a:focus, button:focus {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+/* FOOTER */
+footer{
+  background:#000;
+  padding:18px;
+  text-align:center;
+  font-size:14px;
+  opacity:.6;
 }
 </style>
 </head>
@@ -243,7 +158,7 @@ a:focus, button:focus {
 <body>
 
 <header>
-  <div class="menu-icon" onclick="toggleMenu()" aria-label="Abrir menu">☰</div>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
   <div class="logo">Alpha Olympus</div>
 </header>
 
@@ -255,37 +170,32 @@ a:focus, button:focus {
 <!-- HOME -->
 <div class="hero" id="home">
   <div>
-    <h1>Infraestrutura Profissional de Vagas</h1>
-    <p>
-      Conectamos candidatos e empresas através de uma plataforma
-      estruturada, confiável e em constante evolução.
-    </p>
+    <h1>Oportunidades Reais de Trabalho</h1>
+    <p>Encontre sua próxima oportunidade e dê o próximo passo na sua carreira.</p>
+
+    <div class="home-vagas">
+      <div>Montador de Estruturas Metálicas</div>
+      <div>Lavagem de Lonas</div>
+      <div>Auxiliar Geral</div>
+    </div>
   </div>
 </div>
 
-<!-- VAGAS -->
+<!-- OPORTUNIDADES -->
 <section id="vagas">
   <h2>Vagas Disponíveis</h2>
+  <p style="margin:15px 0;opacity:.85;text-align:center">
+    Escolha uma oportunidade, candidate-se e faça parte de novas experiências profissionais.
+  </p>
 
   <div class="vagas-container">
-    <div class="vaga" onclick="openVaga(
-      'Montador de Estruturas Metálicas',
-      'Atuação em montagem de estruturas metálicas, leitura básica de projetos e trabalho em equipe.'
-    )">
+    <div class="vaga" onclick="openVaga('Montador de Estruturas Metálicas','Atuação na montagem de estruturas metálicas.')">
       Montador de Estruturas Metálicas
     </div>
-
-    <div class="vaga" onclick="openVaga(
-      'Lavagem de Lonas',
-      'Responsável pela higienização, organização e conservação de lonas industriais.'
-    )">
+    <div class="vaga" onclick="openVaga('Lavagem de Lonas','Responsável pela limpeza e conservação de lonas.')">
       Lavagem de Lonas
     </div>
-
-    <div class="vaga" onclick="openVaga(
-      'Auxiliar Geral',
-      'Auxílio em atividades operacionais, organização do ambiente e suporte geral.'
-    )">
+    <div class="vaga" onclick="openVaga('Auxiliar Geral','Auxílio em atividades operacionais diversas.')">
       Auxiliar Geral
     </div>
   </div>
@@ -295,13 +205,13 @@ a:focus, button:focus {
 
 <!-- ANUNCIAR -->
 <section id="anunciar">
-  <h2>Anunciar Vaga</h2>
-  <p style="max-width:520px; text-align:center; opacity:.85">
-    Empresas interessadas em divulgar vagas podem entrar em contato
-    através dos canais oficiais abaixo.
+  <h2>Anuncie sua vaga conosco</h2>
+  <p style="max-width:520px;text-align:center;margin-top:15px;opacity:.9">
+    Sua empresa precisa de visibilidade, agilidade e profissionais certos.
+    Nós entregamos a estrutura ideal para conectar sua vaga aos candidatos certos.
   </p>
 
-  <p style="margin-top:20px">
+  <p style="margin-top:20px;text-align:center">
     📧 alphaolympus01@gmail.com<br>
     📱 (11) 91255-2105<br>
     📷 @alphaolympus
@@ -311,80 +221,46 @@ a:focus, button:focus {
 </section>
 
 <!-- MODAL -->
-<div class="modal" id="modal" role="dialog" aria-modal="true">
+<div class="modal" id="modal">
   <div class="modal-content">
     <h2 id="vagaTitulo"></h2>
     <p id="vagaDescricao"></p>
-
     <button class="btn" onclick="candidatar()">Candidatar-se</button>
     <button class="btn" onclick="closeModal()">Fechar</button>
   </div>
 </div>
 
 <footer>
-© 2026 Alpha Olympus — Infraestrutura de Recrutamento e Vagas
+© 2026 Alpha Olympus — Infraestrutura de Recrutamento
 </footer>
 
 <script>
-/* ==================================================
-   CONTROLE DE MENU
-================================================== */
-function toggleMenu() {
-  const menu = document.getElementById('menuBox');
-  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+function toggleMenu(){
+  const m=document.getElementById('menuBox');
+  m.style.display=m.style.display==='flex'?'none':'flex';
 }
-
-/* ==================================================
-   NAVEGAÇÃO DE SEÇÕES
-================================================== */
-function showSection(id) {
-  document.getElementById('menuBox').style.display = 'none';
-  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+function showSection(id){
+  document.getElementById('menuBox').style.display='none';
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo(0, 0);
+  window.scrollTo(0,0);
 }
-
-function goHome() {
-  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-  window.scrollTo(0, 0);
+function goHome(){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  window.scrollTo(0,0);
 }
-
-/* ==================================================
-   MODAL DE VAGAS
-================================================== */
-function openVaga(titulo, descricao) {
-  document.getElementById('vagaTitulo').innerText = titulo;
-  document.getElementById('vagaDescricao').innerText = descricao;
-  document.getElementById('modal').style.display = 'flex';
+function openVaga(t,d){
+  document.getElementById('vagaTitulo').innerText=t;
+  document.getElementById('vagaDescricao').innerText=d;
+  document.getElementById('modal').style.display='flex';
 }
-
-function closeModal() {
-  document.getElementById('modal').style.display = 'none';
+function closeModal(){
+  document.getElementById('modal').style.display='none';
 }
-
-function candidatar() {
-  const titulo = document.getElementById('vagaTitulo').innerText;
-  window.location.href =
-    'mailto:alphaolympus01@gmail.com?subject=Candidatura - ' + encodeURIComponent(titulo);
+function candidatar(){
+  const t=document.getElementById('vagaTitulo').innerText;
+  window.location.href='mailto:alphaolympus01@gmail.com?subject=Candidatura - '+encodeURIComponent(t);
 }
-
-/* ==================================================
-   FECHAMENTO AUTOMÁTICO DO MODAL
-================================================== */
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape') closeModal();
-});
-
-/*
-====================================================
-PAINEL FUTURO (PLANEJADO):
-- Login empresas
-- Cadastro e gestão de vagas
-- Candidatos inscritos
-- Status de seleção
-- Dashboard administrativo
-====================================================
-*/
 </script>
 
 </body>
