@@ -1,242 +1,297 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Alpha Olympus — Vagas e Recrutamento</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Alpha Olympus — Infraestrutura completa para divulgação e contratação de vagas de emprego.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Olympus – Vagas e Recrutamento</title>
 
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
 
-    body {
-      background: #000;
-      color: #fff;
-    }
+/* HEADER */
+header {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background:#000;
+  display:flex;
+  align-items:center;
+  padding:0 20px;
+  z-index:1000;
+}
 
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      z-index: 1000;
-    }
+/* MENU ☰ */
+.menu {
+  font-size:26px;
+  cursor:pointer;
+  margin-right:15px;
+}
 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+/* LOGO */
+.logo {
+  font-weight:bold;
+  font-size:18px;
+}
 
-    .logo-text {
-      font-size: 18px;
-      font-weight: bold;
-    }
+/* MINI MENU */
+.menu-box {
+  position:fixed;
+  top:60px;
+  left:15px;
+  background:#111;
+  border-radius:8px;
+  width:200px;
+  display:none;
+  flex-direction:column;
+  box-shadow:0 0 20px rgba(0,0,0,.6);
+}
+.menu-box a {
+  padding:12px 15px;
+  text-decoration:none;
+  color:#fff;
+  transition:.3s;
+}
+.menu-box a:hover {
+  background:#1c1c1c;
+}
 
-    /* MENU ☰ */
-    .menu-toggle {
-      font-size: 22px;
-      cursor: pointer;
-      user-select: none;
-      transition: opacity 0.3s;
-    }
+/* HERO */
+.hero {
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(180deg,#000,#111);
+  padding:20px;
+}
+.hero h1 {
+  font-size:36px;
+}
+.hero p {
+  margin-top:15px;
+  font-size:18px;
+  opacity:.8;
+}
 
-    .menu-toggle:hover {
-      opacity: 0.7;
-    }
+/* SECTIONS */
+section {
+  min-height:100vh;
+  padding:100px 20px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+section.active {
+  display:flex;
+  animation:fade .4s ease;
+}
 
-    .menu-dropdown {
-      position: absolute;
-      top: 60px;
-      left: 20px;
-      background: #111;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      display: none;
-      animation: fadeDown 0.3s ease;
-    }
+@keyframes fade {
+  from { opacity:0; transform:translateY(10px); }
+  to { opacity:1; transform:translateY(0); }
+}
 
-    .menu-dropdown a {
-      display: block;
-      padding: 14px 20px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      transition: background 0.3s;
-    }
+/* VAGAS */
+.vagas {
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  width:100%;
+  max-width:500px;
+}
 
-    .menu-dropdown a:hover {
-      background: #00c2ff;
-      color: #000;
-    }
+.vaga {
+  background:#111;
+  padding:15px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:.3s;
+}
+.vaga:hover {
+  background:#1c1c1c;
+}
 
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+/* BOTÕES */
+.btn {
+  margin-top:20px;
+  padding:12px 20px;
+  background:#fff;
+  color:#000;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn:hover {
+  opacity:.8;
+}
 
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background: linear-gradient(to bottom, #000, #111);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
+/* MODAL VAGA */
+.modal {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:2000;
+}
+.modal-content {
+  background:#111;
+  max-width:500px;
+  width:100%;
+  padding:25px;
+  border-radius:10px;
+  animation:fade .3s ease;
+}
+.modal-content h2 {
+  margin-bottom:10px;
+}
+.modal-content p {
+  opacity:.85;
+}
+.modal-content .btn {
+  width:100%;
+}
 
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      max-width: 600px;
-      font-size: 16px;
-      opacity: 0.85;
-    }
-
-    /* SEÇÃO CANDIDATOS */
-    .section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .section h2 {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
-
-    .section p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 16px;
-      opacity: 0.9;
-    }
-
-    /* CONTATO */
-    .contact {
-      background: linear-gradient(to bottom, #061a22, #031014);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 28px;
-      margin-bottom: 24px;
-    }
-
-    .contact p {
-      margin: 10px 0;
-      font-size: 16px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #000;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      opacity: 0.6;
-    }
-
-    /* ESPAÇO DO HEADER */
-    .spacer {
-      height: 60px;
-    }
-  </style>
+/* FOOTER */
+footer {
+  background:#000;
+  text-align:center;
+  padding:15px;
+  font-size:14px;
+  opacity:.6;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo-area">
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <div class="logo-text">Alpha Olympus</div>
-    </div>
-  </header>
+<header>
+  <div class="menu" onclick="toggleMenu()">☰</div>
+  <div class="logo">Alpha Olympus</div>
+</header>
 
-  <!-- MENU DROPDOWN -->
-  <div class="menu-dropdown" id="menu">
-    <a href="#oportunidades">Oportunidades</a>
-    <a href="#anunciar">Anunciar vaga</a>
+<div class="menu-box" id="menuBox">
+  <a href="#" onclick="showSection('vagas')">Oportunidades</a>
+  <a href="#" onclick="showSection('anunciar')">Anunciar vaga</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div>
+    <h1>Infraestrutura de Vagas e Recrutamento</h1>
+    <p>Conectando profissionais a oportunidades reais.</p>
+  </div>
+</div>
+
+<!-- VAGAS -->
+<section id="vagas">
+  <h2>Vagas Disponíveis</h2>
+
+  <div class="vagas">
+    <div class="vaga" onclick="openVaga('Montador de Estruturas Metálicas',
+    'Atuação na montagem de estruturas metálicas em obras e galpões.')">
+      Montador de Estruturas Metálicas
+    </div>
+
+    <div class="vaga" onclick="openVaga('Lavagem de Lonas',
+    'Responsável pela limpeza e manutenção de lonas industriais.')">
+      Lavagem de Lonas
+    </div>
+
+    <div class="vaga" onclick="openVaga('Auxiliar Geral',
+    'Auxílio em atividades operacionais diversas.')">
+      Auxiliar Geral
+    </div>
   </div>
 
-  <div class="spacer"></div>
+  <button class="btn" onclick="goHome()">Retornar</button>
+</section>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div>
-      <h1>Infraestrutura de Vagas e Recrutamento</h1>
-      <p>
-        Conectamos candidatos e empresas através de uma plataforma organizada,
-        segura e preparada para crescimento.
-      </p>
-    </div>
-  </section>
+<!-- ANUNCIAR -->
+<section id="anunciar">
+  <h2>Anunciar Vaga</h2>
+  <p>Empresas podem entrar em contato para divulgar vagas.</p>
+  <p style="margin-top:10px">
+    📧 alphaolympus01@gmail.com<br>
+    📱 (11) 91255-2105<br>
+    📷 @alphaolympus
+  </p>
 
-  <!-- CANDIDATOS -->
-  <section class="section" id="oportunidades">
-    <h2>Para Candidatos</h2>
-    <p>
-      Envie seu currículo, acompanhe oportunidades e participe de processos
-      seletivos em um ambiente estruturado e confiável.
-    </p>
-  </section>
+  <button class="btn" onclick="goHome()">Retornar</button>
+</section>
 
-  <!-- CONTATO -->
-  <section class="contact" id="anunciar">
-    <h2>Contato e Envio de Currículos</h2>
-    <p>📧 E-mail: alphaolympus01@gmail.com</p>
-    <p>📱 WhatsApp / Telefone: (11) 91255-2105</p>
-    <p>📷 Instagram: @alphaolympus</p>
-    <p>
-      Currículos devem ser enviados preferencialmente por e-mail
-      com o assunto da vaga desejada.
-    </p>
-  </section>
+<!-- MODAL VAGA -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 id="vagaTitulo"></h2>
+    <p id="vagaDescricao"></p>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Alpha Olympus — Infraestrutura de Recrutamento e Vagas
-  </footer>
+    <button class="btn"
+    onclick="window.location.href='mailto:alphaolympus01@gmail.com?subject=Candidatura - ' + document.getElementById('vagaTitulo').innerText">
+      Candidatar-se
+    </button>
 
-  <!-- SCRIPT -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
+    <button class="btn" onclick="closeModal()">Fechar</button>
+  </div>
+</div>
 
-    document.addEventListener('click', function(e) {
-      const menu = document.getElementById('menu');
-      const toggle = document.querySelector('.menu-toggle');
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.style.display = 'none';
-      }
-    });
-  </script>
+<footer>
+© 2026 Alpha Olympus – Infraestrutura de Recrutamento e Vagas
+</footer>
+
+<script>
+function toggleMenu(){
+  const menu=document.getElementById('menuBox');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function showSection(id){
+  document.getElementById('menuBox').style.display='none';
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function goHome(){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  window.scrollTo(0,0);
+}
+
+function openVaga(titulo,descricao){
+  document.getElementById('vagaTitulo').innerText=titulo;
+  document.getElementById('vagaDescricao').innerText=descricao;
+  document.getElementById('modal').style.display='flex';
+}
+
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+}
+
+/*
+PAINEL FUTURO (PLANEJADO):
+- /painel
+- login empresas
+- gerenciamento de vagas
+- candidatos inscritos
+*/
+</script>
 
 </body>
 </html>
