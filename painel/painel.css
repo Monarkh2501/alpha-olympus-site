@@ -198,3 +198,23 @@ html {
   transform: scale(1.05);
   opacity: 0.9;
 }
+/* LINK VAGAS - CANTO SUPERIOR ESQUERDO */
+.top-left-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.top-left-link a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.top-left-link a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
