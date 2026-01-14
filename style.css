@@ -6,16 +6,63 @@
 }
 
 body {
-  background: #0e0e0e;
+  background-color: #0e0e0e;
   color: #f5f5f5;
   line-height: 1.6;
 }
 
+/* HERO */
 .hero {
+  min-height: 100vh;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 40px 20px;
 }
 
 .logo {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
 
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #00e0ff;
+}
+
+.section p {
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
