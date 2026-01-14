@@ -12,48 +12,15 @@ body {
   line-height: 1.6;
 }
 
-/* HERO */
 .hero {
   min-height: 100vh;
   background-image:
-    background-image:
-  linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-  url("hero.jpg");
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("hero.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.hero-content h1 {
-  font-size: 4rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  color: #d6d6d6;
-}
-
-/* SECTION */
-.section {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.section p {
-  font-size: 1.05rem;
-  color: #cccccc;
 }
