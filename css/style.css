@@ -1,1 +1,43 @@
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* BODY */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+/* HERO FICTÍCIO (SEM IMAGEM) */
+.hero {
+  width: 100%;
+  height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* CONTEÚDO DO HERO */
+.hero-content h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
