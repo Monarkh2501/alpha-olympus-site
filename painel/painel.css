@@ -32,7 +32,9 @@ body {
   gap: 5px;
   margin-right: 20px;
   cursor: pointer;
+  text-decoration: none;
 }
+
 
 .menu span {
   width: 6px;
