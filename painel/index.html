@@ -2,95 +2,187 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <title>Vagas | Alpha Olympus</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Vagas de emprego atualizadas. Envie seu currículo e encontre oportunidades profissionais.">
+  <meta name="keywords" content="vagas de emprego, trabalho, currículos, Alpha Olympus">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Vagas de emprego atualizadas. Cadastre seu currículo e encontre oportunidades em montagem, serviços gerais e mais.">
-<meta name="keywords" content="vagas de emprego, trabalho, currículos, oportunidades, Alpha Olympus">
-  
-  <div class="title">
-  Home
-  <div class="actions">
-    <a href="../index.html" class="home-btn">home</a>
-  </div>
-  </div>
-  
-  
-  <link rel="stylesheet" href="vagas.css">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #0b1220;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* MENU SUPERIOR */
+    header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+    }
+
+    header a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+    }
+
+    header a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* CONTEÚDO */
+    main {
+      padding: 120px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .box {
+      width: 100%;
+      max-width: 800px;
+      background: #111a2f;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    h1, h2 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+
+    /* VAGAS */
+    .vaga {
+      background: #0e1628;
+      padding: 25px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .vaga:hover {
+      transform: translateY(-4px);
+      background: #16203a;
+    }
+
+    .vaga strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    /* BOTÕES */
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 30px;
+      background: #ffffff;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    /* ANIMAÇÃO */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <a href="#vagas" class="menu" title="Acessar vagas">
-  <span></span>
-  <span></span>
-  <span></span>
-  </a>
-  
-
-    <div class="title">Home</div>
-    
-
-  <!-- MENU LATERAL -->
-  <aside class="sidebar">
-    <a href="#" class="active">Vagas Disponíveis</a>
-    <a href="#anuncie">Anuncie Aqui</a>
-  </aside>
+  <!-- MENU -->
+  <header>
+    <a href="../index.html">Home</a>
+    <a href="#vagas">Vagas</a>
+    <a href="#anuncie">Anuncie aqui</a>
+  </header>
 
   <!-- CONTEÚDO -->
-  <section id="vagas" class="box center">
-  <h2>Vagas Disponíveis</h2>
+  <main>
 
-  <div class="vaga">
-    <strong>Montador de Estruturas Metálicas</strong>
-    <p>Montagem e manutenção de estruturas metálicas.</p>
-    <a href="vagas/montador.html" class="btn">Candidatar-se</a>
-  </div>
+    <!-- HOME -->
+    <section class="box">
+      <h1>Vagas de Emprego</h1>
+      <p>Confira as oportunidades disponíveis e envie seu currículo.</p>
+      <a href="../index.html" class="btn">Retornar à tela principal</a>
+    </section>
 
-  <div class="vaga">
-    <strong>Lavagem de Lonas</strong>
-    <p>Limpeza e conservação de lonas industriais.</p>
-    <a href="vagas/lavagem.html" class="btn">Candidatar-se</a>
-  </div>
+    <!-- VAGAS -->
+    <section id="vagas" class="box">
+      <h2>Vagas Disponíveis</h2>
 
-  <div class="vaga">
-    <strong>Auxiliar Geral</strong>
-    <p>Apoio em atividades operacionais diversas.</p>
-    <a href="vagas/auxiliar.html" class="btn">Candidatar-se</a>
-  </div>
-  </section>
-  
-    
+      <div class="vaga">
+        <strong>Montador de Estruturas Metálicas</strong>
+        <p>Atuação na montagem e manutenção de estruturas metálicas.</p>
+        <a href="#anuncie" class="btn">Candidatar-se</a>
+      </div>
 
-    <section id="anuncie" class="box highlight">
-      <h2>Anuncie Aqui</h2>
+      <div class="vaga">
+        <strong>Lavagem de Lonas</strong>
+        <p>Responsável pela limpeza e conservação de lonas industriais.</p>
+        <a href="#anuncie" class="btn">Candidatar-se</a>
+      </div>
+
+      <div class="vaga">
+        <strong>Auxiliar Geral</strong>
+        <p>Apoio em atividades operacionais diversas.</p>
+        <a href="#anuncie" class="btn">Candidatar-se</a>
+      </div>
+    </section>
+
+    <!-- ANUNCIE -->
+    <section id="anuncie" class="box">
+      <h2>Contato para Currículos e Empresas</h2>
       <p>
-        Empresas podem entrar em contato para anunciar vagas
-        e utilizar nossa infraestrutura completa de recrutamento.
+        📧 alphaolympus01@gmail.com<br>
+        📱 (11) 91255-2105<br>
+        📸 Instagram: @monarkhalphaolympus
       </p>
-
-      <ul class="contact">
-        <li>📧 alphaolympus01@gmail.com</li>
-        <li>📱 (11) 91255-2105</li>
-        <li>📸 @monarkhalphaolympus</li>
-      </ul>
     </section>
 
   </main>
-  <section id="anuncie" class="box center">
-  <h2>Anuncie sua vaga</h2>
-  <p>
-    Empresas interessadas em divulgar vagas podem entrar em contato:
-  </p>
-  <p>
-    📧 <strong>alphaolympus01@gmail.com</strong><br>
-    📱 <strong>(11) 91255-2105</strong><br>
-    📸 <strong>@alphaolympus</strong>
-  </p>
-  </section>
-  
+
 </body>
-  <header class="top-menu">
-  <a href="../index.html">Home</a>
-  <a href="#vagas">Vagas</a>
-  <a href="#anuncie">Anuncie aqui</a>
-</header>
-
-
+</html>
