@@ -131,3 +131,70 @@ body {
   opacity: 0.85;
   font-size: 0.95rem;
 }
+/* ANIMAÇÕES SUAVES */
+html {
+  scroll-behavior: smooth;
+}
+
+/* CENTRALIZAÇÃO */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* BOTÃO RETORNAR */
+.actions {
+  margin-top: 6px;
+}
+
+.return-btn {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.return-btn:hover {
+  text-decoration: underline;
+}
+
+/* VAGA CARD */
+.vaga {
+  background: #0e1623;
+  padding: 25px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.vaga:hover {
+  transform: translateY(-4px);
+  background: #162033;
+}
+
+.vaga strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* BOTÃO */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 28px;
+  background: #ffffff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
