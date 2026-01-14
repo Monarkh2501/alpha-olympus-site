@@ -2,126 +2,241 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <title>Alpha Olympus — Vagas e Recrutamento</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alpha Olympus — Infraestrutura completa para divulgação e contratação de vagas de emprego.">
 
-  <title>Alpha Olympus — Infraestrutura de Vagas e Recrutamento</title>
-  <meta name="description" content="Infraestrutura completa para divulgação de vagas, recebimento de currículos e contratação de talentos.">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-  <link rel="stylesheet" href="css/style.css">
+    body {
+      background: #000;
+      color: #fff;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1000;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    /* MENU ☰ */
+    .menu-toggle {
+      font-size: 22px;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.3s;
+    }
+
+    .menu-toggle:hover {
+      opacity: 0.7;
+    }
+
+    .menu-dropdown {
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      background: #111;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      display: none;
+      animation: fadeDown 0.3s ease;
+    }
+
+    .menu-dropdown a {
+      display: block;
+      padding: 14px 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .menu-dropdown a:hover {
+      background: #00c2ff;
+      color: #000;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(to bottom, #000, #111);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 16px;
+      opacity: 0.85;
+    }
+
+    /* SEÇÃO CANDIDATOS */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .section p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* CONTATO */
+    .contact {
+      background: linear-gradient(to bottom, #061a22, #031014);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    /* ESPAÇO DO HEADER */
+    .spacer {
+      height: 60px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- MENU FIXO -->
-  <nav class="navbar">
-    <div class="logo">Alpha Olympus</div>
-    <ul>
-      <li><a href="#empresa">Empresa</a></li>
-      <li><a href="#infraestrutura">Infraestrutura</a></li>
-      <li><a href="#empresas">Empresas</a></li>
-      <li><a href="empresas/">Empresas</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Infraestrutura completa para vagas e contratação</h1>
-      <p>
-        Divulgação de oportunidades, recebimento de currículos
-        e gestão de processos seletivos em um ambiente profissional.
-      </p>
-      <a href="#contato" class="btn">Enviar Currículo</a>
+  <!-- HEADER -->
+  <header>
+    <div class="logo-area">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="logo-text">Alpha Olympus</div>
     </div>
   </header>
 
-  <!-- EMPRESA -->
-  <section id="empresa" class="section">
-    <h2>Sobre a Alpha Olympus</h2>
-    <p>
-      A Alpha Olympus é uma empresa focada em infraestrutura para divulgação
-      de vagas de emprego, recebimento de currículos e suporte completo
-      para processos de recrutamento e contratação.
-    </p>
-  </section>
+  <!-- MENU DROPDOWN -->
+  <div class="menu-dropdown" id="menu">
+    <a href="#oportunidades">Oportunidades</a>
+    <a href="#anunciar">Anunciar vaga</a>
+  </div>
 
-  <!-- INFRAESTRUTURA -->
-  <section id="infraestrutura" class="section dark">
-    <h2>Nossa Infraestrutura</h2>
+  <div class="spacer"></div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Divulgação de Vagas</h3>
-        <p>Publicação estratégica de oportunidades para alcançar talentos qualificados.</p>
-      </div>
-
-      <div class="card">
-        <h3>Recebimento de Currículos</h3>
-        <p>Canal direto e organizado para envio e análise de currículos.</p>
-      </div>
-
-      <div class="card">
-        <h3>Processo Seletivo</h3>
-        <p>Estrutura clara para triagem, avaliação e seleção de candidatos.</p>
-      </div>
-
-      <div class="card">
-        <h3>Suporte às Empresas</h3>
-        <p>Infraestrutura preparada para empresas de todos os portes.</p>
-      </div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div>
+      <h1>Infraestrutura de Vagas e Recrutamento</h1>
+      <p>
+        Conectamos candidatos e empresas através de uma plataforma organizada,
+        segura e preparada para crescimento.
+      </p>
     </div>
   </section>
 
-  <!-- EMPRESAS -->
-  <section id="empresas" class="section">
-    <h2>Para Empresas</h2>
-    <p>
-      Oferecemos uma solução profissional para empresas que desejam divulgar vagas,
-      receber currículos e conduzir contratações com mais eficiência e organização.
-    </p>
-  </section>
-
   <!-- CANDIDATOS -->
-  <section id="candidatos" class="section dark">
+  <section class="section" id="oportunidades">
     <h2>Para Candidatos</h2>
     <p>
-      Envie seu currículo, acompanhe oportunidades e participe de processos seletivos
-      em um ambiente estruturado e confiável.
+      Envie seu currículo, acompanhe oportunidades e participe de processos
+      seletivos em um ambiente estruturado e confiável.
     </p>
   </section>
 
-  <!-- CONTATO / CURRÍCULOS -->
-  <section id="contato" class="cta">
+  <!-- CONTATO -->
+  <section class="contact" id="anunciar">
     <h2>Contato e Envio de Currículos</h2>
-
+    <p>📧 E-mail: alphaolympus01@gmail.com</p>
+    <p>📱 WhatsApp / Telefone: (11) 91255-2105</p>
+    <p>📷 Instagram: @alphaolympus</p>
     <p>
-      📧 <strong>E-mail:</strong>
-      <a href="mailto:alphaolympus01@gmail.com">alphaolympus01@gmail.com</a>
-    </p>
-
-    <p>
-      📱 <strong>WhatsApp / Telefone:</strong>
-      <a href="https://wa.me/5511912552105" target="_blank">(11) 91255-2105</a>
-    </p>
-
-    <p>
-      📸 <strong>Instagram:</strong>
-      <a href="https://instagram.com/alphaolympus" target="_blank">@alphaolympus</a>
-    </p>
-
-    <p class="cta-info">
       Currículos devem ser enviados preferencialmente por e-mail
       com o assunto da vaga desejada.
     </p>
   </section>
 
-  <!-- RODAPÉ -->
-  <footer class="footer">
-    <p>© 2026 Alpha Olympus — Infraestrutura de Recrutamento e Vagas</p>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Alpha Olympus — Infraestrutura de Recrutamento e Vagas
   </footer>
 
-</body>
-    </html>
-<li><a href="painel/">Painel</a></li>
+  <!-- SCRIPT -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
 
-    
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('menu');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
