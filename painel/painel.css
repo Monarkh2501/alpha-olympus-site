@@ -218,3 +218,40 @@ html {
   opacity: 1;
   text-decoration: underline;
 }
+/* MENU FIXO */
+.top-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 20px;
+  z-index: 1000;
+}
+
+.top-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.top-menu a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+/* ANIMAÇÃO DE ENTRADA */
+.box, .vaga {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
