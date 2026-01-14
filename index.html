@@ -5,9 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alpha Olympus | Infraestrutura de Vagas e Recrutamento</title>
+<title>Alpha Olympus | Infraestrutura de Divulgação de Vagas e Recrutamento</title>
 
-<meta name="description" content="Infraestrutura profissional para divulgação de vagas e recrutamento de talentos.">
+<meta name="description" content="Alpha Olympus é uma infraestrutura profissional de divulgação de vagas e recrutamento simplificado, conectando empresas e candidatos com transparência.">
+<meta name="keywords" content="vagas de emprego, recrutamento, divulgação de vagas, oportunidades de trabalho">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Alpha Olympus">
 
@@ -42,7 +43,7 @@ header{
   position:fixed;
   top:64px;
   left:16px;
-  width:220px;
+  width:240px;
   background:#111;
   border-radius:10px;
   display:none;
@@ -68,10 +69,10 @@ header{
   padding:120px 20px 40px;
   background:linear-gradient(180deg,#000,#0f1e26);
 }
-.hero h1{font-size:40px}
-.hero p{margin-top:16px;font-size:18px;opacity:.85}
+.hero h1{font-size:38px}
+.hero p{margin-top:16px;font-size:18px;opacity:.85;max-width:720px}
 
-/* DESTAQUE VAGAS HOME */
+/* HOME VAGAS */
 .home-vagas{
   margin-top:40px;
   max-width:520px;
@@ -96,6 +97,15 @@ section{
 }
 section.active{display:flex;animation:fade .3s ease}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* CONTEÚDO */
+.content{
+  max-width:760px;
+  text-align:center;
+  opacity:.9;
+}
+.content h2{margin-bottom:16px}
+.content p{margin-bottom:14px}
 
 /* VAGAS */
 .vagas-container{
@@ -164,14 +174,18 @@ footer{
 
 <nav class="menu-box" id="menuBox">
   <a href="#" onclick="showSection('vagas')">Oportunidades</a>
+  <a href="#" onclick="showSection('institucional')">Quem Somos</a>
   <a href="#" onclick="showSection('anunciar')">Anunciar vaga</a>
 </nav>
 
 <!-- HOME -->
 <div class="hero" id="home">
   <div>
-    <h1>Oportunidades Reais de Trabalho</h1>
-    <p>Encontre sua próxima oportunidade e dê o próximo passo na sua carreira.</p>
+    <h1>Infraestrutura de Divulgação e Recrutamento Simplificado</h1>
+    <p>
+      A Alpha Olympus conecta candidatos e empresas por meio de uma estrutura
+      organizada, transparente e focada em oportunidades reais de trabalho.
+    </p>
 
     <div class="home-vagas">
       <div>Montador de Estruturas Metálicas</div>
@@ -181,11 +195,11 @@ footer{
   </div>
 </div>
 
-<!-- OPORTUNIDADES -->
+<!-- VAGAS -->
 <section id="vagas">
   <h2>Vagas Disponíveis</h2>
   <p style="margin:15px 0;opacity:.85;text-align:center">
-    Escolha uma oportunidade, candidate-se e faça parte de novas experiências profissionais.
+    Candidate-se com confiança. Não cobramos nenhuma taxa dos candidatos.
   </p>
 
   <div class="vagas-container">
@@ -203,21 +217,58 @@ footer{
   <button class="btn" onclick="goHome()">Retornar</button>
 </section>
 
+<!-- INSTITUCIONAL -->
+<section id="institucional">
+  <div class="content">
+    <h2>Quem Somos</h2>
+    <p>
+      A Alpha Olympus é uma infraestrutura independente de divulgação de vagas
+      e recrutamento simplificado. Nosso papel é conectar oportunidades reais
+      a profissionais interessados, com clareza e responsabilidade.
+    </p>
+
+    <h2>Como Funciona</h2>
+    <p>
+      As vagas divulgadas são encaminhadas diretamente para os canais oficiais
+      informados. Não realizamos cobranças de candidatos e não intermediamos
+      valores ou contratações.
+    </p>
+
+    <h2>Transparência</h2>
+    <p>
+      A Alpha Olympus não cobra nenhuma taxa para candidatos se inscreverem
+      em vagas. Nosso compromisso é com informação clara, acesso simples
+      e respeito ao profissional.
+    </p>
+
+    <h2>Painel (Visão Futura)</h2>
+    <p>
+      No futuro, empresas terão acesso a um painel exclusivo para gerenciar
+      vagas, acompanhar candidaturas e otimizar processos de divulgação,
+      sempre mantendo a simplicidade e transparência.
+    </p>
+
+    <button class="btn" onclick="goHome()">Retornar</button>
+  </div>
+</section>
+
 <!-- ANUNCIAR -->
 <section id="anunciar">
-  <h2>Anuncie sua vaga conosco</h2>
-  <p style="max-width:520px;text-align:center;margin-top:15px;opacity:.9">
-    Sua empresa precisa de visibilidade, agilidade e profissionais certos.
-    Nós entregamos a estrutura ideal para conectar sua vaga aos candidatos certos.
-  </p>
+  <div class="content">
+    <h2>Anuncie sua vaga com visibilidade</h2>
+    <p>
+      Empresas que buscam alcance, organização e profissionais alinhados
+      encontram na Alpha Olympus uma estrutura direta, eficiente e acessível
+      para divulgação de oportunidades.
+    </p>
+    <p>
+      📧 alphaolympus01@gmail.com<br>
+      📱 (11) 91255-2105<br>
+      📷 @alphaolympus
+    </p>
 
-  <p style="margin-top:20px;text-align:center">
-    📧 alphaolympus01@gmail.com<br>
-    📱 (11) 91255-2105<br>
-    📷 @alphaolympus
-  </p>
-
-  <button class="btn" onclick="goHome()">Retornar</button>
+    <button class="btn" onclick="goHome()">Retornar</button>
+  </div>
 </section>
 
 <!-- MODAL -->
@@ -231,7 +282,7 @@ footer{
 </div>
 
 <footer>
-© 2026 Alpha Olympus — Infraestrutura de Recrutamento
+© 2026 Alpha Olympus — Infraestrutura de Divulgação e Recrutamento Simplificado
 </footer>
 
 <script>
