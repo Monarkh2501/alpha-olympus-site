@@ -1,326 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Alpha Olympus | Infraestrutura de Divulgação de Vagas e Recrutamento</title>
-
-<meta name="description" content="Alpha Olympus é uma infraestrutura profissional de divulgação de vagas e recrutamento simplificado, conectando empresas e candidatos com transparência.">
-<meta name="keywords" content="vagas de emprego, recrutamento, divulgação de vagas, oportunidades de trabalho">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Alpha Olympus">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:Segoe UI,Arial,sans-serif;
-  background:#0b0b0b;
-  color:#fff;
-  line-height:1.6;
-}
-
-/* HEADER */
-header{
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  height:64px;
-  background:rgba(0,0,0,.9);
-  display:flex;
-  align-items:center;
-  padding:0 20px;
-  z-index:1000;
-  border-bottom:1px solid #1a1a1a;
-}
-.menu-icon{font-size:26px;cursor:pointer;margin-right:16px}
-.logo{font-size:18px;font-weight:600}
-
-/* MENU */
-.menu-box{
-  position:fixed;
-  top:64px;
-  left:16px;
-  width:240px;
-  background:#111;
-  border-radius:10px;
-  display:none;
-  flex-direction:column;
-  overflow:hidden;
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
-}
-.menu-box a{
-  padding:14px 16px;
-  text-decoration:none;
-  color:#fff;
-  border-bottom:1px solid #1f1f1f;
-}
-.menu-box a:hover{background:#1c1c1c}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:120px 20px 40px;
-  background:linear-gradient(180deg,#000,#0f1e26);
-}
-.hero h1{font-size:38px}
-.hero p{margin-top:16px;font-size:18px;opacity:.85;max-width:720px}
-
-/* HOME VAGAS */
-.home-vagas{
-  margin-top:40px;
-  max-width:520px;
-  width:100%;
-}
-.home-vagas div{
-  background:#111;
-  padding:14px;
-  margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #1f1f1f;
-}
-
-/* SECTIONS */
-section{
-  min-height:100vh;
-  padding:120px 20px 60px;
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-section.active{display:flex;animation:fade .3s ease}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-
-/* CONTEÚDO */
-.content{
-  max-width:760px;
-  text-align:center;
-  opacity:.9;
-}
-.content h2{margin-bottom:16px}
-.content p{margin-bottom:14px}
-
-/* VAGAS */
-.vagas-container{
-  max-width:520px;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-.vaga{
-  background:#121212;
-  padding:16px;
-  border-radius:10px;
-  border:1px solid #1f1f1f;
-  cursor:pointer;
-}
-.vaga:hover{background:#1b1b1b}
-
-/* BOTÕES */
-.btn{
-  margin-top:24px;
-  padding:14px 22px;
-  border-radius:8px;
-  border:none;
-  cursor:pointer;
-  font-weight:600;
-}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:2000;
-}
-.modal-content{
-  background:#111;
-  max-width:520px;
-  width:100%;
-  padding:28px;
-  border-radius:14px;
-  border:1px solid #1f1f1f;
-}
-
-/* FOOTER */
-footer{
-  background:#000;
-  padding:18px;
-  text-align:center;
-  font-size:13px;
-  opacity:.65;
-}
-footer .disclaimer{
-  margin-top:6px;
-  font-size:12px;
-  opacity:.55;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Patinhas Prime | Tudo para seu Pet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Produtos premium para cães e gatos com entrega rápida.">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header>
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  <div class="logo">Alpha Olympus</div>
+  <div class="logo">🐾 Patinhas Prime</div>
+  <a href="#produtos" class="btn-topo">Comprar Agora</a>
 </header>
 
-<nav class="menu-box" id="menuBox">
-  <a href="#" onclick="showSection('vagas')">Oportunidades</a>
-  <a href="#" onclick="showSection('institucional')">Quem Somos</a>
-  <a href="#" onclick="showSection('anunciar')">Anunciar vaga</a>
-</nav>
+<section class="hero">
+  <h1>Seu Pet Merece o Melhor.</h1>
+  <p>Produtos selecionados para quem trata seu pet como família.</p>
+  <a href="#produtos" class="btn-principal">VER PRODUTOS</a>
+</section>
 
-<!-- HOME -->
-<div class="hero" id="home">
+<section class="beneficios">
   <div>
-    <h1>Infraestrutura de Divulgação e Recrutamento Simplificado</h1>
-    <p>
-      A Alpha Olympus conecta candidatos e empresas por meio de uma estrutura
-      organizada, transparente e focada em oportunidades reais de trabalho.
-    </p>
-
-    <div class="home-vagas">
-      <div>Montador de Estruturas Metálicas</div>
-      <div>Lavagem de Lonas</div>
-      <div>Auxiliar Geral</div>
-    </div>
+    <h3>🚚 Entrega Rápida</h3>
+    <p>Envio para todo Brasil</p>
   </div>
-</div>
-
-<!-- VAGAS -->
-<section id="vagas">
-  <h2>Vagas Disponíveis</h2>
-  <p style="margin:15px 0;opacity:.85;text-align:center">
-    Candidate-se com confiança. Não cobramos nenhuma taxa dos candidatos.
-  </p>
-
-  <div class="vagas-container">
-    <div class="vaga" onclick="openVaga('Montador de Estruturas Metálicas','Atuação na montagem de estruturas metálicas.')">
-      Montador de Estruturas Metálicas
-    </div>
-    <div class="vaga" onclick="openVaga('Lavagem de Lonas','Responsável pela limpeza e conservação de lonas.')">
-      Lavagem de Lonas
-    </div>
-    <div class="vaga" onclick="openVaga('Auxiliar Geral','Auxílio em atividades operacionais diversas.')">
-      Auxiliar Geral
-    </div>
+  <div>
+    <h3>💎 Qualidade Premium</h3>
+    <p>Produtos testados e aprovados</p>
   </div>
-
-  <button class="btn" onclick="goHome()">Retornar</button>
-</section>
-
-<!-- INSTITUCIONAL -->
-<section id="institucional">
-  <div class="content">
-    <h2>Quem Somos</h2>
-    <p>
-      A Alpha Olympus é uma infraestrutura independente de divulgação de vagas
-      e recrutamento simplificado. Nosso papel é conectar oportunidades reais
-      a profissionais interessados, com clareza e responsabilidade.
-    </p>
-
-    <h2>Como Funciona</h2>
-    <p>
-      As vagas divulgadas são encaminhadas diretamente para os canais oficiais
-      informados. Não realizamos cobranças de candidatos e não intermediamos
-      valores ou contratações.
-    </p>
-
-    <h2>Transparência</h2>
-    <p>
-      A Alpha Olympus não cobra nenhuma taxa para candidatos se inscreverem
-      em vagas. Nosso compromisso é com informação clara, acesso simples
-      e respeito ao profissional.
-    </p>
-
-    <h2>Painel (Visão Futura)</h2>
-    <p>
-      No futuro, empresas terão acesso a um painel exclusivo para gerenciar
-      vagas, acompanhar candidaturas e otimizar processos de divulgação,
-      sempre mantendo a simplicidade e transparência.
-    </p>
-
-    <button class="btn" onclick="goHome()">Retornar</button>
+  <div>
+    <h3>❤️ Amor em Cada Detalhe</h3>
+    <p>Feito para quem ama seu pet</p>
   </div>
 </section>
 
-<!-- ANUNCIAR -->
-<section id="anunciar">
-  <div class="content">
-    <h2>Anuncie sua vaga com visibilidade</h2>
-    <p>
-      Empresas que buscam alcance, organização e profissionais alinhados
-      encontram na Alpha Olympus uma estrutura direta, eficiente e acessível
-      para divulgação de oportunidades.
-    </p>
-    <p>
-      📧 alphaolympus01@gmail.com<br>
-      📱 (11) 91255-2105<br>
-      📷 @alphaolympus
-    </p>
+<section id="produtos" class="produtos">
+  <h2>Produtos em Destaque</h2>
 
-    <button class="btn" onclick="goHome()">Retornar</button>
-  </div>
-</section>
+  <div class="grid">
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h2 id="vagaTitulo"></h2>
-    <p id="vagaDescricao"></p>
-    <button class="btn" onclick="candidatar()">Candidatar-se</button>
-    <button class="btn" onclick="closeModal()">Fechar</button>
-  </div>
-</div>
-
-<footer>
-© 2026 Alpha Olympus — Infraestrutura de Divulgação e Recrutamento Simplificado
-<div class="disclaimer">
-A Alpha Olympus atua exclusivamente como infraestrutura de divulgação de vagas, não participando de processos seletivos ou contratações.
-</div>
-</footer>
-
-<script>
-function toggleMenu(){
-  const m=document.getElementById('menuBox');
-  m.style.display=m.style.display==='flex'?'none':'flex';
-}
-function showSection(id){
-  document.getElementById('menuBox').style.display='none';
-  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
-}
-function goHome(){
-  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
-  window.scrollTo(0,0);
-}
-function openVaga(t,d){
-  document.getElementById('vagaTitulo').innerText=t;
-  document.getElementById('vagaDescricao').innerText=d;
-  document.getElementById('modal').style.display='flex';
-}
-function closeModal(){
-  document.getElementById('modal').style.display='none';
-}
-function candidatar(){
-  const t=document.getElementById('vagaTitulo').innerText;
-  window.location.href='mailto:alphaolympus01@gmail.com?subject=Candidatura - '+encodeURIComponent(t);
-}
-</script>
-
-</body>
-</html>
+    <div class
+      
